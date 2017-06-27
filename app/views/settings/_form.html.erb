@@ -1,0 +1,54 @@
+
+<%= form_for(@setting, :html => { :class => "form-horizontal" }) do |f| %>
+  <% if @setting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@setting.errors.count, "error") %> prohibited this setting from being saved:</h2>
+
+      <ul>
+        <% @setting.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %>
+      </ul>
+    </div>
+  <% end %>
+      <div class="control-group">
+      <%= f.label :env, t('app.models.setting.bs_attributes.env', :default => 'env').capitalize, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :env %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :key, t('app.models.setting.bs_attributes.key', :default => 'key').capitalize, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :key %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :value, t('app.models.setting.bs_attributes.value', :default => 'value').capitalize, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :value %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :keyclass, t('app.models.setting.bs_attributes.keyclass', :default => 'keyclass').capitalize, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :keyclass %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :admin, t('app.models.setting.bs_attributes.admin', :default => 'admin').capitalize, :class => "control-label" %>
+      <div class="controls">
+        <%= f.check_box :admin %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :global, t('app.models.setting.bs_attributes.global', :default => 'global').capitalize, :class => "control-label" %>
+      <div class="controls">
+        <%= f.check_box :global %>
+      </div>
+    </div>
+<!-- Beautiful_scaffold - AddField - Do not remove -->
+  <div class="form-actions">
+    <%= f.submit :class => "btn btn-primary" %>
+  </div>
+<% end %>
+
+

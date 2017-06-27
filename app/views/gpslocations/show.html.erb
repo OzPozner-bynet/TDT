@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @gpslocation.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @gpslocation.address %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @gpslocation.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @gpslocation.longitude %>
+</p>
+
+<%= link_to 'Edit', edit_gpslocation_path(@gpslocation) %> |
+<%= link_to 'Back', gpslocations_path %>

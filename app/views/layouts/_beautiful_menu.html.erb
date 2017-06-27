@@ -1,0 +1,12 @@
+<!-- Beautiful Scaffold Menu Do Not Touch This -->
+      <li class="<%= "active" if params[:controller] == "settings" %>">
+        <%= link_to t('app.models.setting.bs_caption_plural', :default => 'setting').capitalize, 
+        params[:locale].nil? ? settings_path : "#{settings_path}?locale=#{params[:locale]}"  %>
+      </li>
+      <li class="<%= "active" if params[:controller] == "locations" %>">
+        <%= link_to t('app.models.location.bs_caption_plural', :default => "location").capitalize, 
+        params[:locale].nil? ? locations_path : "#{locations_path}?locale=#{params[:locale]}" %>
+      </li>
+	  <li class="<%= "active" if params[:controller] == "driver" %>">
+        <%= link_to t('driver') , params[:locale].nil? ? "/driver" : "/driver?locale=#{params[:locale]}" %>
+      </li>

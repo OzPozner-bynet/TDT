@@ -1,0 +1,32 @@
+<h2><%= t(:show, :default => "Show") %> <%= t('app.models.setting.bs_caption', :default => 'setting') %></h2>
+
+  <p>
+    <b><%= t('app.models.setting.bs_attributes.env', :default => 'env') %>:</b>
+      <%= @setting.env %>
+  </p>
+  <p>
+    <b><%= t('app.models.setting.bs_attributes.key', :default => 'key') %>:</b>
+      <%= @setting.key %>
+  </p>
+  <p>
+    <b><%= t('app.models.setting.bs_attributes.value', :default => 'value') %>:</b>
+      <%= @setting.value %>
+  </p>
+  <p>
+    <b><%= t('app.models.setting.bs_attributes.keyclass', :default => 'keyclass') %>:</b>
+      <%= @setting.keyclass %>
+  </p>
+  <p>
+    <b><%= t('app.models.setting.bs_attributes.admin', :default => 'admin') %>:</b>
+      <%= t((@setting.admin ? "yes".to_sym : "no".to_sym)) %>
+  </p>
+  <p>
+    <b><%= t('app.models.setting.bs_attributes.global', :default => 'global') %>:</b>
+      <%= t((@setting.global ? "yes".to_sym : "no".to_sym)) %>
+  </p>
+
+<!-- Beautiful_scaffold - AddField - Field - Do not remove -->
+
+<%= link_to t(:edit, :default => "Edit"), edit_setting_path(@setting), :class => "btn" %>
+<%= link_to t(:back, :default => "Back"), settings_path, :class => "btn" %>
+<%= link_to '<i class="icon-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.setting.bs_caption', :default => 'setting'), new_setting_path, :class => "btn" %>

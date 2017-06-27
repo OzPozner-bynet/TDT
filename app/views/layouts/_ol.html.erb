@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bynet Level Crossing<%= (!@title.nil?) ? "-#{@title}".html_safe : "" %></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" href="/OpenLayers/theme/default/style.css" type="text/css">
+  <link rel="stylesheet" href="/OpenLayers/style.css" type="text/css">
+  
+  <%= javascript_include_tag 'jquery', 'jquery.livequery', 'bootstrap.min' %>
+    <style type="text/css">
+    .olControlAttribution {
+        bottom: 0;
+        font-size:2;
+    }
+    </style>
+    <script src="/assets/OpenLayers.js"></script>
+    <script>OpenLayers.Console = window.console || OpenLayers.Console;</script>
+</head>
+<body style="margin: 0px;padding: 0px">
+	
+	<%= yield %>
+</body>
+</html>

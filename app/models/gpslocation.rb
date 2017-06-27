@@ -1,0 +1,2 @@
+class Gpslocation < ApplicationRecord
+end

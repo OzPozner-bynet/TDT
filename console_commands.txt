@@ -1,0 +1,74 @@
+#the commands used to build the app
+rails new TDT_server -d postgresql
+cd TDT_server
+bundle lock --add-platform ruby
+bundle install
+
+#
+#rake mapfish:install_client
+
+
+#Setup db
+set path=%path%;c:\Program Files\PostgreSQL\9.6\bin;
+setx PATH "%PATH%"
+cd c:\Program Files\PostgreSQL\9.6
+pg_env
+cd bin
+createuser pguser
+#optionally run "postgres" in new window
+psql
+\password pguser
+password
+password
+postgres=# 
+create database  TDT_server_development ;
+#==>#CREATE DATABASE
+nick=# 
+\c TDT_server_development
+#==>#You are now connected to database "TDT_server_development" as user "postgres".
+postgis_test=# 
+create extension postgis;
+#==>#CREATE EXTENSION
+postgis_test=# 
+\q
+#==>#If it doesn’t complain, it worked!
+CREATE USER pgUser WITH PASSWORD 'pgPassword';
+GRANT ALL PRIVILEGES ON DATABASE TDT_server_development to pgUser; 
+\q
+## psql -d TDT_server_development -U pgUser
+
+add to .\config\application.rb before the "end"
+config.active_record.schema_format = :sql
+
+rails generate devise:install
+rails generate devise:views
+rails generate simple_form:install --bootstrap
+rails generate devise user
+rails g active_admin:install
+#rails g mapfish:install_client
+echo. AdminUser.create!(email: 'admin@bynet.local', password: 'Bynet8001', password_confirmation: 'Bynet8001') >> .\db\seeds.rb
+
+
+
+rake db:create
+rake db:migrate
+rake db:seed
+rails server
+
+postgres
+  createdb -E UTF8 template_postgis # Create the template spatial database.
+  createlang -d template_postgis plpgsql # Adding PLPGSQL language support.
+  psql -d template_postgis -f /usr/share/postgresql-8.3-postgis/lwpostgis.sql
+  psql -d template_postgis -f /usr/share/postgresql-8.3-postgis/spatial_ref_sys.sql
+  cat <<EOS | psql -d template_postgis
+  UPDATE pg_database SET datistemplate = TRUE WHERE datname = 'template_postgis';
+  REVOKE ALL ON SCHEMA public FROM public;
+  GRANT USAGE ON SCHEMA public TO public;
+  GRANT ALL ON SCHEMA public TO postgres;
+  GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE public.geometry_columns TO PUBLIC;
+  GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE public.spatial_ref_sys TO PUBLIC;
+  VACUUM FULL FREEZE;
+EOS
+
+#dev only commands
+rails generate active_admin:resource MyModel
