@@ -1,0 +1,44 @@
+<h2><%= t(:show, :default => "Show") %> <%= t(:location, :default => "location") %></h2>
+
+  <p>
+    <b><%= t(:name, :default => "Name") %>:</b>
+      <%= @location.name %>
+  </p>
+  <p>
+    <b><%= t(:lat, :default => "Lat") %>:</b>
+      <%= @location.lat %>
+  </p>
+  <p>
+    <b><%= t(:lon, :default => "Lon") %>:</b>
+      <%= @location.lon %>
+  </p>
+  <p>
+    <b><%= t(:description, :default => "Description") %>:</b>
+      <%= @location.description %>
+  </p>
+  <p>
+    <b><%= t(:locationType, :default => "Locationtype") %>:</b>
+      <%= @location.locationType %>
+  </p>
+  <p>
+    <b><%= t(:insideR, :default => "Insider") %>:</b>
+      <%= @location.insideR %>
+  </p>
+  <p>
+    <b><%= t(:nearR, :default => "Nearr") %>:</b>
+      <%= @location.nearR %>
+  </p>
+  <p>
+    <b><%= t(:objectsPresent, :default => "Objectspresent") %>:</b>
+      <%= @location.objectsPresent %>
+  </p>
+  <p>
+    <b><%= t(:lastupdate, :default => "Lastupdate") %>:</b>
+      <%= @location.lastupdate %>
+  </p>
+
+<!-- Beautiful_scaffold - AddField - Field - Do not remove -->
+
+<%= link_to t(:edit, :default => "Edit"), edit_location_path(@location), :class => "btn" %>
+<%= link_to t(:back, :default => "Back"), locations_path, :class => "btn" %>
+

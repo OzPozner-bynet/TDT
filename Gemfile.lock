@@ -361,6 +361,7 @@ DEPENDENCIES
   POpen4
   activeadmin_settings_cached
   activerecord-postgis-adapter
+  bcrypt
   bootstrap-sass
   byebug
   coffee-rails (~> 4.2)

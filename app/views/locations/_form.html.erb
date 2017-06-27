@@ -1,0 +1,82 @@
+
+<%= form_for(@location, :html => { :class => "form-horizontal" }) do |f| %>
+  <% if @location.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+
+      <ul>
+        <% @location.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %>
+      </ul>
+    </div>
+  <% end %>
+      <div class="control-group">
+      <%= f.label :name, t(:name, :default => "name").capitalize, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :lat, t(:lat, :default => "lat").capitalize, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :lat %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :lon, t(:lon, :default => "lon").capitalize, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :lon %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :description, t(:description, :default => "description").capitalize, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :description %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :locationType, t(:locationType, :default => "locationType").capitalize, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :locationType %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :insideR, t(:insideR, :default => "insideR").capitalize, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :insideR %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :nearR, t(:nearR, :default => "nearR").capitalize, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :nearR %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :objectsPresent, t(:objectsPresent, :default => "objectsPresent").capitalize, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :objectsPresent %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :lastupdate, t(:lastupdate, :default => "lastupdate").capitalize, :class => "control-label" %>
+      <div class="controls">
+        <div class="input-append">
+          <input type="hidden" name="location[lastupdate(3i)]" id="location_lastupdate_3i" value="<%= begin @location.lastupdate.day rescue "" end %>" />
+          <input type="hidden" name="location[lastupdate(2i)]" id="location_lastupdate_2i" value="<%= begin @location.lastupdate.mon rescue "" end %>" />
+          <input type="hidden" name="location[lastupdate(1i)]" id="location_lastupdate_1i" value="<%= begin @location.lastupdate.year rescue "" end %>" />
+          <%= f.text_field :lastupdate, :class => "dpicker" %><span class="add-on"><i class="icon-calendar"></i></span>
+        </div>
+        <div class="input-append">
+          <input type="hidden" name="location[lastupdate(4i)]" id="location_lastupdate_4i" value="<%= begin @location.lastupdate.min rescue "" end %>" />
+          <input type="hidden" name="location[lastupdate(5i)]" id="location_lastupdate_5i" value="<%= begin @location.lastupdate.hour rescue "" end %>" />
+          <%= f.text_field :lastupdate, :class => "tpicker" %><span class="add-on"><i class="icon-time"></i></span>
+        </div>
+      </div>
+    </div>
+<!-- Beautiful_scaffold - AddField - Do not remove -->
+  <div class="form-actions">
+    <%= f.submit :class => "btn btn-primary" %>
+  </div>
+<% end %>
+
+

@@ -21,6 +21,14 @@
 
 en:
   hello: "Hello world"
+  application_name: "Test Drive Tool"
+  application_description: "Test Drive Tool & bynet swiss army knife web tools server"
+  Home: "App Home"
+  Menu: "Menu"
+  Driver_view: "Driver"
+  driver: "Driver"
+  no: "No"
+  yes: "Yes"
   app:
     models:
       setting:

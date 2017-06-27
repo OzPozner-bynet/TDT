@@ -13,6 +13,21 @@ Rails.application.routes.draw do
     end
   end 
   
+  
+  resources :locationtypes
+
+  match "locations/search_and_filter" => "locations#index", :via => [:get, :post], :as => :search_locations
+  resources :locations do
+    collection do
+      post :batch
+      get  :treeview
+    end
+    member do
+      post :treeview_update
+    end
+  end 
+  
+  
   ActiveAdmin.routes(self)
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

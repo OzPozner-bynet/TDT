@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @locationtype.name %>
+</p>
+
+<p>
+  <strong>Icon:</strong>
+  <%= @locationtype.icon_id %>
+</p>
+
+<p>
+  <strong>Icon url:</strong>
+  <%= @locationtype.icon_url %>
+</p>
+
+<p>
+  <strong>Insider:</strong>
+  <%= @locationtype.insideR %>
+</p>
+
+<p>
+  <strong>Nearr:</strong>
+  <%= @locationtype.nearR %>
+</p>
+
+<%= link_to 'Edit', edit_locationtype_path(@locationtype) %> |
+<%= link_to 'Back', locationtypes_path %>
